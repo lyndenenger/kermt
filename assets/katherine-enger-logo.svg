@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 430" role="img" aria-labelledby="title desc">
+  <title id="title">Katherine Enger RMT logo concept</title>
+  <desc id="desc">A Lake Country inspired logo mark with hills, lake, sun, orchard rows, and Katherine Enger RMT text.</desc>
+  <defs>
+    <linearGradient id="lake" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#58b9cf"/>
+      <stop offset="1" stop-color="#0f7692"/>
+    </linearGradient>
+    <linearGradient id="hills" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#7ab65f"/>
+      <stop offset="1" stop-color="#246d47"/>
+    </linearGradient>
+    <linearGradient id="orchard" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#b8d957"/>
+      <stop offset="1" stop-color="#3d8c45"/>
+    </linearGradient>
+    <filter id="softGlow" x="-25%" y="-25%" width="150%" height="150%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="1 0 0 0 1  0 1 0 0 1  0 0 1 0 1  0 0 0 0.55 0"/>
+      <feBlend in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g filter="url(#softGlow)">
+    <path d="M96 155C116 70 218 34 342 38c123 4 229 46 250 127" fill="none" stroke="#0b2a4f" stroke-width="8" stroke-linecap="round"/>
+    <path d="M92 278c35 80 129 116 250 116 122 0 219-40 252-118" fill="none" stroke="#0b2a4f" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="379" cy="108" r="43" fill="#f7a93b"/>
+    <path d="M128 159c54-58 116-83 186-75 44 5 74 26 104 51 36 30 82 48 135 47-55 28-105 36-150 24-35-9-58-31-91-44-59-24-118-16-184 28z" fill="url(#hills)"/>
+    <path d="M210 162c41-34 87-47 139-39 32 5 59 20 81 43-38 7-74 4-108-10-34-14-71-12-112 6z" fill="#98d5e1" opacity="0.9"/>
+    <path d="M139 204c89-13 164-13 224 0 61 13 119 10 174-9-54 49-122 72-203 70-76-2-142-22-195-61z" fill="url(#lake)"/>
+    <path d="M114 229c60-19 115-24 166-14-50 18-100 31-151 39z" fill="url(#orchard)"/>
+    <path d="M128 239c39-12 77-17 113-15M142 250c34-9 67-13 99-11M158 259c26-6 53-9 79-8" fill="none" stroke="#eff2a1" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="124" cy="215" r="7" fill="#f05e31"/>
+    <circle cx="145" cy="207" r="6" fill="#f05e31"/>
+    <circle cx="166" cy="213" r="6" fill="#f05e31"/>
+    <text x="340" y="294" text-anchor="middle" fill="#0b2a4f" font-family="'Brush Script MT', 'Snell Roundhand', cursive" font-size="78" font-weight="400">Katherine Enger</text>
+    <path d="M112 305c63 11 126 15 189 12M379 317c66 3 130-1 192-13" fill="none" stroke="#0b2a4f" stroke-width="4" stroke-linecap="round"/>
+    <text x="340" y="336" text-anchor="middle" fill="#0b2a4f" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="800" letter-spacing="12">RMT</text>
+    <text x="340" y="375" text-anchor="middle" fill="#0b2a4f" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="800" letter-spacing="4">LAKE COUNTRY, BC</text>
+  </g>
+</svg>
