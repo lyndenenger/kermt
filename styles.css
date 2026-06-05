@@ -215,9 +215,10 @@ h3 {
 }
 
 .hero-actions {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
+  max-width: 700px;
   margin-bottom: 44px;
 }
 
@@ -252,9 +253,21 @@ h3 {
   color: var(--white);
 }
 
+.button.tertiary,
+.button.directions-button {
+  border: 1px solid rgba(219, 165, 114, 0.72);
+  background: rgba(219, 165, 114, 0.14);
+  color: var(--white);
+}
+
+.hero-actions .button {
+  width: 100%;
+  min-width: 0;
+}
+
 .hero-facts {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, 0.85fr);
   gap: 1px;
   max-width: 760px;
   margin: 0;
@@ -281,6 +294,21 @@ h3 {
   margin: 0;
   font-weight: 800;
   line-height: 1.35;
+}
+
+.hero-map-link {
+  display: grid;
+  gap: 4px;
+}
+
+.hero-map-link span {
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 0.96rem;
+}
+
+.hero-map-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .portrait {
@@ -393,11 +421,64 @@ h3 {
 
 .coverage-list li {
   min-height: 56px;
-  padding: 17px 18px;
   border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.08);
   font-weight: 850;
+  overflow: hidden;
+}
+
+.coverage-item details {
+  height: 100%;
+}
+
+.coverage-item summary {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+  padding: 17px 42px;
+  cursor: pointer;
+  list-style: none;
+  text-align: center;
+}
+
+.coverage-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.coverage-item summary::after {
+  content: "+";
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 1rem;
+  transform: translateY(-50%);
+}
+
+.coverage-item details[open] summary {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.coverage-item details[open] summary::after {
+  content: "-";
+}
+
+.coverage-item summary:focus-visible {
+  outline: 2px solid rgba(219, 165, 114, 0.86);
+  outline-offset: -2px;
+}
+
+.coverage-detail {
+  margin: 0;
+  padding: 16px 18px 18px;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.52;
+  text-align: left;
 }
 
 .location {
@@ -423,9 +504,10 @@ h3 {
   position: relative;
   z-index: 2;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 28px;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 260px);
+  gap: clamp(28px, 5vw, 52px);
   align-items: end;
+  scroll-margin-top: 92px;
   margin-bottom: clamp(36px, 8vw, 86px);
   padding: clamp(26px, 4vw, 42px);
   border-radius: 8px;
@@ -440,15 +522,147 @@ h3 {
   line-height: 1.68;
 }
 
+.location-copy {
+  max-width: 780px;
+}
+
+.location-intro {
+  margin-bottom: 8px;
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.location-address {
+  margin-bottom: 22px;
+}
+
+.location-address span {
+  display: block;
+}
+
+.location-address span + span {
+  margin-top: 4px;
+}
+
+.health-quote {
+  max-width: 620px;
+  margin: 0;
+  padding: 16px 0 0 18px;
+  border-left: 3px solid rgba(185, 99, 70, 0.52);
+  color: rgba(24, 49, 58, 0.7);
+}
+
+.health-quote p {
+  margin-bottom: 6px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.1rem, 2vw, 1.34rem);
+  line-height: 1.45;
+}
+
+.health-quote cite {
+  color: var(--ink-soft);
+  font-size: 0.86rem;
+  font-style: normal;
+  font-weight: 800;
+}
+
+.location-side {
+  display: grid;
+  gap: 16px;
+  width: 100%;
+  align-self: stretch;
+  align-content: end;
+}
+
+.map-preview {
+  position: relative;
+  display: block;
+  min-height: 150px;
+  border: 1px solid rgba(39, 77, 87, 0.2);
+  border-radius: 8px;
+  background:
+    linear-gradient(142deg, transparent 0 45%, rgba(255, 255, 255, 0.34) 45% 48%, transparent 48%),
+    linear-gradient(28deg, transparent 0 42%, rgba(65, 108, 117, 0.16) 42% 45%, transparent 45%),
+    linear-gradient(90deg, rgba(143, 168, 91, 0.18), transparent 38%),
+    #e8efeb;
+  overflow: hidden;
+}
+
+.map-preview::before,
+.map-preview::after {
+  content: "";
+  position: absolute;
+  border-radius: 999px;
+  background: rgba(39, 77, 87, 0.18);
+}
+
+.map-preview::before {
+  width: 170px;
+  height: 12px;
+  left: -26px;
+  top: 46px;
+  transform: rotate(-16deg);
+}
+
+.map-preview::after {
+  width: 210px;
+  height: 10px;
+  right: -58px;
+  bottom: 36px;
+  transform: rotate(22deg);
+}
+
+.map-road {
+  position: absolute;
+  z-index: 2;
+  color: rgba(24, 49, 58, 0.58);
+  font-size: 0.68rem;
+  font-weight: 900;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.map-road-main {
+  left: 16px;
+  top: 18px;
+}
+
+.map-road-cross {
+  right: 14px;
+  bottom: 16px;
+}
+
+.map-pin {
+  position: absolute;
+  left: 50%;
+  top: 48%;
+  z-index: 3;
+  width: 22px;
+  height: 22px;
+  border: 3px solid var(--white);
+  border-radius: 50% 50% 50% 0;
+  background: #c83a2f;
+  box-shadow: 0 8px 18px rgba(24, 49, 58, 0.26);
+  transform: translate(-50%, -76%) rotate(-45deg);
+}
+
+.map-pin::after {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border-radius: 50%;
+  background: var(--white);
+}
+
 .contact-stack {
   display: grid;
-  justify-items: start;
+  justify-items: stretch;
   gap: 14px;
-  min-width: 196px;
+  width: 100%;
 }
 
 .contact-stack .button {
-  width: auto;
+  width: 100%;
 }
 
 .location-panel .button.call-button {
@@ -456,9 +670,10 @@ h3 {
   color: var(--teal-deep);
 }
 
-.text-link {
+.location-panel .button.directions-button {
+  border-color: rgba(185, 99, 70, 0.42);
+  background: rgba(185, 99, 70, 0.09);
   color: var(--teal-deep);
-  font-weight: 900;
 }
 
 .site-footer {
@@ -530,6 +745,10 @@ h3 {
   .location-panel {
     align-items: start;
   }
+
+  .location-side {
+    align-content: start;
+  }
 }
 
 @media (max-width: 600px) {
@@ -570,6 +789,10 @@ h3 {
     width: 100%;
   }
 
+  .hero-actions {
+    grid-template-columns: 1fr;
+  }
+
   .hero-facts div {
     min-height: 82px;
     padding: 16px;
@@ -598,5 +821,9 @@ h3 {
   .location-panel {
     margin-bottom: 22px;
     padding: 24px;
+  }
+
+  .map-preview {
+    min-height: 136px;
   }
 }
