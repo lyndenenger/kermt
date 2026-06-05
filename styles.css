@@ -93,13 +93,11 @@ nav {
   font-weight: 700;
 }
 
-nav a,
-.header-cta {
+nav a {
   opacity: 0.92;
 }
 
 nav a:hover,
-.header-cta:hover,
 .text-link:hover {
   opacity: 1;
   text-decoration: underline;
@@ -110,11 +108,23 @@ nav a:hover,
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 74px;
+  min-width: 0;
   min-height: 42px;
-  border: 1px solid rgba(255, 255, 255, 0.68);
+  padding: 0 18px;
+  border: 1px solid var(--sage);
   border-radius: 999px;
-  font-weight: 800;
+  background: var(--sage);
+  color: #132c33;
+  font-weight: 900;
+  line-height: 1;
+  white-space: nowrap;
+  transition: transform 160ms ease, background-color 160ms ease, border-color 160ms ease;
+}
+
+.header-cta:hover {
+  opacity: 1;
+  text-decoration: none;
+  transform: translateY(-1px);
 }
 
 .hero {
@@ -220,6 +230,7 @@ h3 {
   border-radius: 999px;
   font-weight: 900;
   line-height: 1;
+  white-space: nowrap;
   transition: transform 160ms ease, background-color 160ms ease, border-color 160ms ease;
 }
 
@@ -227,14 +238,17 @@ h3 {
   transform: translateY(-1px);
 }
 
-.button.primary {
+.button.primary,
+.button.booking-button {
   border: 1px solid var(--sage);
   background: var(--sage);
   color: #132c33;
 }
 
-.button.secondary {
+.button.secondary,
+.button.call-button {
   border: 1px solid rgba(255, 255, 255, 0.72);
+  background: transparent;
   color: var(--white);
 }
 
@@ -434,7 +448,12 @@ h3 {
 }
 
 .contact-stack .button {
-  width: 100%;
+  width: auto;
+}
+
+.location-panel .button.call-button {
+  border-color: rgba(39, 77, 87, 0.44);
+  color: var(--teal-deep);
 }
 
 .text-link {
@@ -533,8 +552,10 @@ h3 {
   }
 
   .header-cta {
-    min-width: 66px;
+    min-width: 0;
     min-height: 40px;
+    padding: 0 14px;
+    font-size: 0.9rem;
   }
 
   .hero {
