@@ -234,9 +234,10 @@ h3 {
 }
 
 .hero-actions {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
+  max-width: 700px;
   margin-bottom: 44px;
 }
 
@@ -271,9 +272,21 @@ h3 {
   color: var(--white);
 }
 
+.button.tertiary,
+.button.directions-button {
+  border: 1px solid rgba(219, 165, 114, 0.72);
+  background: rgba(219, 165, 114, 0.14);
+  color: var(--white);
+}
+
+.hero-actions .button {
+  width: 100%;
+  min-width: 0;
+}
+
 .hero-facts {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, 0.85fr);
   gap: 1px;
   max-width: 760px;
   margin: 0;
@@ -300,6 +313,21 @@ h3 {
   margin: 0;
   font-weight: 800;
   line-height: 1.35;
+}
+
+.hero-map-link {
+  display: grid;
+  gap: 4px;
+}
+
+.hero-map-link span {
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 0.96rem;
+}
+
+.hero-map-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .portrait {
@@ -412,11 +440,64 @@ h3 {
 
 .coverage-list li {
   min-height: 56px;
-  padding: 17px 18px;
   border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.08);
   font-weight: 850;
+  overflow: hidden;
+}
+
+.coverage-item details {
+  height: 100%;
+}
+
+.coverage-item summary {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+  padding: 17px 42px;
+  cursor: pointer;
+  list-style: none;
+  text-align: center;
+}
+
+.coverage-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.coverage-item summary::after {
+  content: "+";
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 1rem;
+  transform: translateY(-50%);
+}
+
+.coverage-item details[open] summary {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.coverage-item details[open] summary::after {
+  content: "-";
+}
+
+.coverage-item summary:focus-visible {
+  outline: 2px solid rgba(219, 165, 114, 0.86);
+  outline-offset: -2px;
+}
+
+.coverage-detail {
+  margin: 0;
+  padding: 16px 18px 18px;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.52;
+  text-align: left;
 }
 
 .location {
@@ -442,9 +523,10 @@ h3 {
   position: relative;
   z-index: 2;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 28px;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 260px);
+  gap: clamp(28px, 5vw, 52px);
   align-items: end;
+  scroll-margin-top: 92px;
   margin-bottom: clamp(36px, 8vw, 86px);
   padding: clamp(26px, 4vw, 42px);
   border-radius: 8px;
@@ -459,15 +541,147 @@ h3 {
   line-height: 1.68;
 }
 
+.location-copy {
+  max-width: 780px;
+}
+
+.location-intro {
+  margin-bottom: 8px;
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.location-address {
+  margin-bottom: 22px;
+}
+
+.location-address span {
+  display: block;
+}
+
+.location-address span + span {
+  margin-top: 4px;
+}
+
+.health-quote {
+  max-width: 620px;
+  margin: 0;
+  padding: 16px 0 0 18px;
+  border-left: 3px solid rgba(185, 99, 70, 0.52);
+  color: rgba(24, 49, 58, 0.7);
+}
+
+.health-quote p {
+  margin-bottom: 6px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.1rem, 2vw, 1.34rem);
+  line-height: 1.45;
+}
+
+.health-quote cite {
+  color: var(--ink-soft);
+  font-size: 0.86rem;
+  font-style: normal;
+  font-weight: 800;
+}
+
+.location-side {
+  display: grid;
+  gap: 16px;
+  width: 100%;
+  align-self: stretch;
+  align-content: end;
+}
+
+.map-preview {
+  position: relative;
+  display: block;
+  min-height: 150px;
+  border: 1px solid rgba(39, 77, 87, 0.2);
+  border-radius: 8px;
+  background:
+    linear-gradient(142deg, transparent 0 45%, rgba(255, 255, 255, 0.34) 45% 48%, transparent 48%),
+    linear-gradient(28deg, transparent 0 42%, rgba(65, 108, 117, 0.16) 42% 45%, transparent 45%),
+    linear-gradient(90deg, rgba(143, 168, 91, 0.18), transparent 38%),
+    #e8efeb;
+  overflow: hidden;
+}
+
+.map-preview::before,
+.map-preview::after {
+  content: "";
+  position: absolute;
+  border-radius: 999px;
+  background: rgba(39, 77, 87, 0.18);
+}
+
+.map-preview::before {
+  width: 170px;
+  height: 12px;
+  left: -26px;
+  top: 46px;
+  transform: rotate(-16deg);
+}
+
+.map-preview::after {
+  width: 210px;
+  height: 10px;
+  right: -58px;
+  bottom: 36px;
+  transform: rotate(22deg);
+}
+
+.map-road {
+  position: absolute;
+  z-index: 2;
+  color: rgba(24, 49, 58, 0.58);
+  font-size: 0.68rem;
+  font-weight: 900;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.map-road-main {
+  left: 16px;
+  top: 18px;
+}
+
+.map-road-cross {
+  right: 14px;
+  bottom: 16px;
+}
+
+.map-pin {
+  position: absolute;
+  left: 50%;
+  top: 48%;
+  z-index: 3;
+  width: 22px;
+  height: 22px;
+  border: 3px solid var(--white);
+  border-radius: 50% 50% 50% 0;
+  background: #c83a2f;
+  box-shadow: 0 8px 18px rgba(24, 49, 58, 0.26);
+  transform: translate(-50%, -76%) rotate(-45deg);
+}
+
+.map-pin::after {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border-radius: 50%;
+  background: var(--white);
+}
+
 .contact-stack {
   display: grid;
-  justify-items: start;
+  justify-items: stretch;
   gap: 14px;
-  min-width: 196px;
+  width: 100%;
 }
 
 .contact-stack .button {
-  width: auto;
+  width: 100%;
 }
 
 .location-panel .button.call-button {
@@ -475,9 +689,10 @@ h3 {
   color: var(--teal-deep);
 }
 
-.text-link {
+.location-panel .button.directions-button {
+  border-color: rgba(185, 99, 70, 0.42);
+  background: rgba(185, 99, 70, 0.09);
   color: var(--teal-deep);
-  font-weight: 900;
 }
 
 .site-footer {
@@ -549,6 +764,10 @@ h3 {
   .location-panel {
     align-items: start;
   }
+
+  .location-side {
+    align-content: start;
+  }
 }
 
 @media (max-width: 600px) {
@@ -589,6 +808,10 @@ h3 {
     width: 100%;
   }
 
+  .hero-actions {
+    grid-template-columns: 1fr;
+  }
+
   .hero-facts div {
     min-height: 82px;
     padding: 16px;
@@ -618,6 +841,10 @@ h3 {
     margin-bottom: 22px;
     padding: 24px;
   }
+
+  .map-preview {
+    min-height: 136px;
+  }
 }
 
 </style>
@@ -626,14 +853,14 @@ h3 {
     <header class="site-header" aria-label="Primary">
       <a class="brand" href="#top" aria-label="Katherine Enger, RMT home">
         <span class="brand-text">
-          Lake Country Wellness
-          <small>Chiropractic and Massage</small>
+          Katherine Enger, RMT
+          <small>at Lake Country Wellness</small>
         </span>
       </a>
       <nav aria-label="Page sections">
         <a href="#approach">Approach</a>
         <a href="#coverage">Coverage</a>
-        <a href="#location">Location</a>
+        <a href="#location-card">Location</a>
       </nav>
       <a class="header-cta" href="https://katherineengerrmt.janeapp.com/" target="_blank" rel="noopener noreferrer">Book Online</a>
     </header>
@@ -652,19 +879,27 @@ h3 {
           <div class="hero-actions" aria-label="Booking actions">
             <a class="button primary booking-button" href="https://katherineengerrmt.janeapp.com/" target="_blank" rel="noopener noreferrer">Book Online</a>
             <a class="button secondary call-button" href="tel:+12503061019">Call 250-306-1019</a>
+            <a class="button tertiary directions-button" href="https://www.google.com/maps/search/?api=1&query=Unit+18+11852+HWY+97+N+Lake+Country+BC+V4V+1E3" target="_blank" rel="noopener noreferrer">Get Directions</a>
           </div>
           <dl class="hero-facts" aria-label="Practice details">
             <div>
-              <dt>Clinic</dt>
-              <dd>Lake Country Wellness Chiropractic and Massage</dd>
-            </div>
-            <div>
-              <dt>Location</dt>
-              <dd>Unit 18, 11852 Hwy 97 N</dd>
+              <dt>Clinic &amp; Location</dt>
+              <dd>
+                <a
+                  class="hero-map-link"
+                  href="https://www.google.com/maps/search/?api=1&query=Unit+18+11852+HWY+97+N+Lake+Country+BC+V4V+1E3"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Open Lake Country Wellness Chiropractic and Massage in Google Maps"
+                >
+                  Lake Country Wellness Chiropractic and Massage
+                  <span>Unit 18, 11852 Hwy 97 N</span>
+                </a>
+              </dd>
             </div>
             <div>
               <dt>Patients</dt>
-              <dd>New patients welcome</dd>
+              <dd>New Patients Welcome!</dd>
             </div>
           </dl>
         </div>
@@ -731,33 +966,98 @@ h3 {
             </p>
           </div>
           <ul class="coverage-list" aria-label="Coverage options">
-            <li>ICBC</li>
-            <li>MSP</li>
-            <li>RCMP</li>
-            <li>VAC</li>
-            <li>Extended health</li>
+            <li class="coverage-item">
+              <details>
+                <summary>ICBC</summary>
+                <p class="coverage-detail">
+                  Coverage related to a motor vehicle accident claim in British
+                  Columbia. RMT may be covered when treatment is approved or
+                  eligible under the ICBC claim.
+                </p>
+              </details>
+            </li>
+            <li class="coverage-item">
+              <details>
+                <summary>MSP</summary>
+                <p class="coverage-detail">
+                  Medical Services Plan of BC. This is provincial health
+                  coverage. MSP generally does not broadly cover RMT for most
+                  people, but limited supplementary benefits may apply for
+                  eligible low-income residents.
+                </p>
+              </details>
+            </li>
+            <li class="coverage-item">
+              <details>
+                <summary>RCMP</summary>
+                <p class="coverage-detail">
+                  Coverage for Royal Canadian Mounted Police members, usually
+                  through federal or occupational health benefits. RMT coverage
+                  depends on the member's plan rules.
+                </p>
+              </details>
+            </li>
+            <li class="coverage-item">
+              <details>
+                <summary>VAC</summary>
+                <p class="coverage-detail">
+                  Veterans Affairs Canada. RMT may be covered for eligible
+                  veterans if it relates to approved benefits or treatment
+                  programs.
+                </p>
+              </details>
+            </li>
+            <li class="coverage-item">
+              <details>
+                <summary>Extended Health</summary>
+                <p class="coverage-detail">
+                  Private or employer-sponsored benefits, such as Canada Life,
+                  Sun Life, Manulife, Blue Cross, and similar plans. RMT is
+                  commonly covered up to an annual maximum, often requiring the
+                  therapist to be registered.
+                </p>
+              </details>
+            </li>
           </ul>
         </div>
       </section>
 
       <section id="location" class="section location" aria-labelledby="location-title">
         <div class="location-photo" role="img" aria-label="Okanagan lake landscape"></div>
-        <div class="section-inner location-panel">
-          <div>
-            <p class="eyebrow">Visit</p>
-            <h2 id="location-title">Lake Country Wellness Chiropractic and Massage</h2>
-            <p>
-              Unit 18, 11852 Hwy 97 N, Lake Country, BC. The clinic is in Lakewood
-              Mall at the north end of Lake Country.
+        <div id="location-card" class="section-inner location-panel">
+          <div class="location-copy">
+            <p class="eyebrow">Visit Katherine</p>
+            <h2 id="location-title">Katherine Enger, RMT</h2>
+            <p class="location-intro">
+              Registered massage therapy at Lake Country Wellness Chiropractic
+              and Massage.
             </p>
+            <p class="location-address">
+              <span>Unit 18, 11852 Hwy 97 N, Lake Country, BC.</span>
+              <span>The clinic is in Lakewood Mall at the north end of Lake Country.</span>
+            </p>
+            <blockquote class="health-quote">
+              <p>"It is health that is real wealth, not pieces of gold and silver."</p>
+              <cite>- Gandhi</cite>
+            </blockquote>
           </div>
-          <div class="contact-stack">
-            <a class="button primary booking-button" href="https://katherineengerrmt.janeapp.com/" target="_blank" rel="noopener noreferrer">Book Online</a>
-            <a class="button secondary call-button" href="tel:+12503061019">Call 250-306-1019</a>
+          <div class="location-side">
             <a
-              class="text-link"
+              class="map-preview"
               href="https://www.google.com/maps/search/?api=1&query=Unit+18+11852+HWY+97+N+Lake+Country+BC+V4V+1E3"
-            >Get directions</a>
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open clinic location in Google Maps"
+            >
+              <span class="map-road map-road-main">Hwy 97 N</span>
+              <span class="map-road map-road-cross">Lakewood Mall</span>
+              <span class="map-pin" aria-hidden="true"></span>
+            </a>
+            <div class="contact-stack">
+              <a class="button primary booking-button" href="https://katherineengerrmt.janeapp.com/" target="_blank" rel="noopener noreferrer">Book Online</a>
+              <a class="button secondary call-button" href="tel:+12503061019">Call 250-306-1019</a>
+              <a class="button tertiary directions-button" href="https://www.google.com/maps/search/?api=1&query=Unit+18+11852+HWY+97+N+Lake+Country+BC+V4V+1E3" target="_blank" rel="noopener noreferrer">Get Directions</a>
+            </div>
           </div>
         </div>
       </section>
@@ -771,5 +1071,15 @@ h3 {
         <a href="tel:+12503061019">Call 250-306-1019</a>
       </p>
     </footer>
+    <script>
+      document.querySelectorAll(".coverage-item details").forEach((detail) => {
+        detail.addEventListener("toggle", () => {
+          if (!detail.open) return;
+          document.querySelectorAll(".coverage-item details[open]").forEach((openDetail) => {
+            if (openDetail !== detail) openDetail.open = false;
+          });
+        });
+      });
+    </script>
   </body>
 </html>

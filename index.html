@@ -22,14 +22,14 @@
     <header class="site-header" aria-label="Primary">
       <a class="brand" href="#top" aria-label="Katherine Enger, RMT home">
         <span class="brand-text">
-          Lake Country Wellness
-          <small>Chiropractic and Massage</small>
+          Katherine Enger, RMT
+          <small>at Lake Country Wellness</small>
         </span>
       </a>
       <nav aria-label="Page sections">
         <a href="#approach">Approach</a>
         <a href="#coverage">Coverage</a>
-        <a href="#location">Location</a>
+        <a href="#location-card">Location</a>
       </nav>
       <a class="header-cta" href="https://katherineengerrmt.janeapp.com/" target="_blank" rel="noopener noreferrer">Book Online</a>
     </header>
@@ -48,19 +48,27 @@
           <div class="hero-actions" aria-label="Booking actions">
             <a class="button primary booking-button" href="https://katherineengerrmt.janeapp.com/" target="_blank" rel="noopener noreferrer">Book Online</a>
             <a class="button secondary call-button" href="tel:+12503061019">Call 250-306-1019</a>
+            <a class="button tertiary directions-button" href="https://www.google.com/maps/search/?api=1&query=Unit+18+11852+HWY+97+N+Lake+Country+BC+V4V+1E3" target="_blank" rel="noopener noreferrer">Get Directions</a>
           </div>
           <dl class="hero-facts" aria-label="Practice details">
             <div>
-              <dt>Clinic</dt>
-              <dd>Lake Country Wellness Chiropractic and Massage</dd>
-            </div>
-            <div>
-              <dt>Location</dt>
-              <dd>Unit 18, 11852 Hwy 97 N</dd>
+              <dt>Clinic &amp; Location</dt>
+              <dd>
+                <a
+                  class="hero-map-link"
+                  href="https://www.google.com/maps/search/?api=1&query=Unit+18+11852+HWY+97+N+Lake+Country+BC+V4V+1E3"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Open Lake Country Wellness Chiropractic and Massage in Google Maps"
+                >
+                  Lake Country Wellness Chiropractic and Massage
+                  <span>Unit 18, 11852 Hwy 97 N</span>
+                </a>
+              </dd>
             </div>
             <div>
               <dt>Patients</dt>
-              <dd>New patients welcome</dd>
+              <dd>New Patients Welcome!</dd>
             </div>
           </dl>
         </div>
@@ -127,33 +135,98 @@
             </p>
           </div>
           <ul class="coverage-list" aria-label="Coverage options">
-            <li>ICBC</li>
-            <li>MSP</li>
-            <li>RCMP</li>
-            <li>VAC</li>
-            <li>Extended health</li>
+            <li class="coverage-item">
+              <details>
+                <summary>ICBC</summary>
+                <p class="coverage-detail">
+                  Coverage related to a motor vehicle accident claim in British
+                  Columbia. RMT may be covered when treatment is approved or
+                  eligible under the ICBC claim.
+                </p>
+              </details>
+            </li>
+            <li class="coverage-item">
+              <details>
+                <summary>MSP</summary>
+                <p class="coverage-detail">
+                  Medical Services Plan of BC. This is provincial health
+                  coverage. MSP generally does not broadly cover RMT for most
+                  people, but limited supplementary benefits may apply for
+                  eligible low-income residents.
+                </p>
+              </details>
+            </li>
+            <li class="coverage-item">
+              <details>
+                <summary>RCMP</summary>
+                <p class="coverage-detail">
+                  Coverage for Royal Canadian Mounted Police members, usually
+                  through federal or occupational health benefits. RMT coverage
+                  depends on the member's plan rules.
+                </p>
+              </details>
+            </li>
+            <li class="coverage-item">
+              <details>
+                <summary>VAC</summary>
+                <p class="coverage-detail">
+                  Veterans Affairs Canada. RMT may be covered for eligible
+                  veterans if it relates to approved benefits or treatment
+                  programs.
+                </p>
+              </details>
+            </li>
+            <li class="coverage-item">
+              <details>
+                <summary>Extended Health</summary>
+                <p class="coverage-detail">
+                  Private or employer-sponsored benefits, such as Canada Life,
+                  Sun Life, Manulife, Blue Cross, and similar plans. RMT is
+                  commonly covered up to an annual maximum, often requiring the
+                  therapist to be registered.
+                </p>
+              </details>
+            </li>
           </ul>
         </div>
       </section>
 
       <section id="location" class="section location" aria-labelledby="location-title">
         <div class="location-photo" role="img" aria-label="Okanagan lake landscape"></div>
-        <div class="section-inner location-panel">
-          <div>
-            <p class="eyebrow">Visit</p>
-            <h2 id="location-title">Lake Country Wellness Chiropractic and Massage</h2>
-            <p>
-              Unit 18, 11852 Hwy 97 N, Lake Country, BC. The clinic is in Lakewood
-              Mall at the north end of Lake Country.
+        <div id="location-card" class="section-inner location-panel">
+          <div class="location-copy">
+            <p class="eyebrow">Visit Katherine</p>
+            <h2 id="location-title">Katherine Enger, RMT</h2>
+            <p class="location-intro">
+              Registered massage therapy at Lake Country Wellness Chiropractic
+              and Massage.
             </p>
+            <p class="location-address">
+              <span>Unit 18, 11852 Hwy 97 N, Lake Country, BC.</span>
+              <span>The clinic is in Lakewood Mall at the north end of Lake Country.</span>
+            </p>
+            <blockquote class="health-quote">
+              <p>"It is health that is real wealth, not pieces of gold and silver."</p>
+              <cite>- Gandhi</cite>
+            </blockquote>
           </div>
-          <div class="contact-stack">
-            <a class="button primary booking-button" href="https://katherineengerrmt.janeapp.com/" target="_blank" rel="noopener noreferrer">Book Online</a>
-            <a class="button secondary call-button" href="tel:+12503061019">Call 250-306-1019</a>
+          <div class="location-side">
             <a
-              class="text-link"
+              class="map-preview"
               href="https://www.google.com/maps/search/?api=1&query=Unit+18+11852+HWY+97+N+Lake+Country+BC+V4V+1E3"
-            >Get directions</a>
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open clinic location in Google Maps"
+            >
+              <span class="map-road map-road-main">Hwy 97 N</span>
+              <span class="map-road map-road-cross">Lakewood Mall</span>
+              <span class="map-pin" aria-hidden="true"></span>
+            </a>
+            <div class="contact-stack">
+              <a class="button primary booking-button" href="https://katherineengerrmt.janeapp.com/" target="_blank" rel="noopener noreferrer">Book Online</a>
+              <a class="button secondary call-button" href="tel:+12503061019">Call 250-306-1019</a>
+              <a class="button tertiary directions-button" href="https://www.google.com/maps/search/?api=1&query=Unit+18+11852+HWY+97+N+Lake+Country+BC+V4V+1E3" target="_blank" rel="noopener noreferrer">Get Directions</a>
+            </div>
           </div>
         </div>
       </section>
@@ -167,5 +240,15 @@
         <a href="tel:+12503061019">Call 250-306-1019</a>
       </p>
     </footer>
+    <script>
+      document.querySelectorAll(".coverage-item details").forEach((detail) => {
+        detail.addEventListener("toggle", () => {
+          if (!detail.open) return;
+          document.querySelectorAll(".coverage-item details[open]").forEach((openDetail) => {
+            if (openDetail !== detail) openDetail.open = false;
+          });
+        });
+      });
+    </script>
   </body>
 </html>
